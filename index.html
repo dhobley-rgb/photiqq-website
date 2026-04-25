@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photiqq — The all-inclusive studio platform built for photographers</title>
+<meta name="description" content="The all-inclusive studio platform built for photographers. Join the waitlist for founding member pricing.">
+<meta property="og:title" content="Photiqq — The all-inclusive studio platform built for photographers">
+<meta property="og:description" content="The all-inclusive studio platform built for photographers.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-soft: #1a2a44;
+    --navy-deeper: #050d1a;
+    --gold: #d4a017;
+    --gold-light: #f5d76e;
+    --cream: #faf8f3;
+    --cream-deep: #f0ebe0;
+    --border: #e8e0cf;
+    --border-dark: rgba(255, 215, 80, 0.15);
+    --muted: #8a8275;
+    --text-soft: #5a5448;
+    --gold-gradient: linear-gradient(160deg, #ffe566 0%, #ffc200 40%, #d4a017 70%, #ffd740 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .gold-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 12px rgba(255, 200, 50, 0.3));
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 18px 32px;
+    background: rgba(250, 248, 243, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .logo em { font-style: normal; }
+
+  nav .cta {
+    background: var(--navy);
+    color: var(--gold-light);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--navy);
+  }
+
+  nav .cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(10, 22, 40, 0.2);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy-deeper) 0%, var(--navy) 50%, var(--navy-soft) 100%);
+    color: white;
+    padding: 130px 32px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 200, 50, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -300px;
+    left: -300px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255, 200, 50, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 215, 80, 0.08);
+    border: 1px solid rgba(255, 215, 80, 0.25);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold-light);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: #f0ebe0;
+    margin-bottom: 26px;
+  }
+
+  h1 em { font-style: normal; }
+
+  .subheadline {
+    font-size: 19px;
+    color: #b8c0cf;
+    line-height: 1.5;
+    margin-bottom: 38px;
+    max-width: 520px;
+  }
+
+  /* ── EMAIL FORM ── */
+  .email-form {
+    display: flex;
+    gap: 10px;
+    max-width: 480px;
+    margin-bottom: 18px;
+  }
+
+  .email-form input {
+    flex: 1;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 215, 80, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .email-form input::placeholder {
+    color: #6b7890;
+  }
+
+  .email-form input:focus {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+  }
+
+  .email-form button {
+    padding: 16px 28px;
+    background: var(--gold-gradient);
+    color: var(--navy);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
+  }
+
+  .email-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(212, 160, 23, 0.45);
+  }
+
+  .form-note {
+    font-size: 13px;
+    color: #6b7890;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .form-note .check {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  .success-msg {
+    display: none;
+    padding: 16px 20px;
+    background: rgba(74, 173, 102, 0.12);
+    border: 1px solid rgba(74, 173, 102, 0.4);
+    border-radius: 10px;
+    color: #8edcab;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .success-msg.show { display: block; }
+
+  /* ── HERO VISUAL ── */
+  .hero-visual {
+    position: relative;
+    height: 520px;
+  }
+
+  .dashboard-mock {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 100%;
+    background: var(--cream);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 215, 80, 0.2);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 215, 80, 0.1);
+    overflow: hidden;
+    transform: perspective(1200px) rotateY(-8deg) rotateX(2deg);
+  }
+
+  .mock-bar {
+    height: 28px;
+    background: var(--cream-deep);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 6px;
+  }
+
+  .mock-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  .mock-content {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    min-height: 360px;
+  }
+
+  .mock-side {
+    background: var(--navy);
+    padding: 16px 10px;
+  }
+
+  .mock-side .mlog {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: #f0ebe0;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .mock-nav-item {
+    padding: 8px 6px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    font-size: 9px;
+    color: #6a7890;
+    text-align: center;
+  }
+
+  .mock-nav-item.active {
+    background: var(--navy-soft);
+    color: var(--gold-light);
+  }
+
+  .mock-main { padding: 18px; }
+
+  .mock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .mock-stat {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .mock-stat-label {
+    font-size: 8px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .mock-stat-val {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  .mock-stat-val.gold {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .mock-list {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .mock-list-title {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .mock-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+  }
+
+  .mock-row:last-child { border-bottom: none; }
+
+  .mock-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--cream-deep);
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  .mock-row .name {
+    color: var(--navy);
+    font-weight: 700;
+    font-family: 'Fraunces', serif;
+    flex: 1;
+  }
+
+  .mock-row .amt {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 10px;
+  }
+
+  /* ── SECTION ── */
+  section {
+    padding: 100px 32px;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(34px, 5vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  h2 em { font-style: normal; }
+
+  .lead {
+    font-size: 19px;
+    color: var(--text-soft);
+    max-width: 620px;
+    margin-bottom: 60px;
+    line-height: 1.5;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    background: white;
+    border-top: 1px solid var(--border);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 30px;
+  }
+
+  .feature {
+    padding: 32px 28px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.3s;
+  }
+
+  .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(10, 22, 40, 0.08);
+    border-color: rgba(212, 160, 23, 0.3);
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--navy);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+
+  .feature h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .feature p {
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .problem {
+    background: var(--cream-deep);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .problem-list {
+    list-style: none;
+  }
+
+  .problem-list li {
+    display: flex;
+    gap: 14px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .problem-list li:last-child { border-bottom: none; }
+
+  .problem-list .x {
+    color: #c75d4a;
+    font-weight: 900;
+    font-size: 20px;
+    margin-top: -2px;
+  }
+
+  .problem-list strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .problem-list span {
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+
+  .solution-card {
+    background: var(--navy);
+    border-radius: 18px;
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solution-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 200, 50, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .solution-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: #f0ebe0;
+    position: relative;
+  }
+
+  .solution-card p {
+    color: #b8c0cf;
+    line-height: 1.7;
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .solution-card ul {
+    list-style: none;
+    position: relative;
+  }
+
+  .solution-card ul li {
+    padding: 8px 0;
+    color: #f0ebe0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .solution-card .check {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  /* ── PRICING / FOUNDING ── */
+  .founding {
+    background: var(--cream);
+    text-align: center;
+  }
+
+  .founding .container {
+    max-width: 720px;
+  }
+
+  .founding-card {
+    background: white;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 48px 40px;
+    margin-top: 36px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(212, 160, 23, 0.15);
+  }
+
+  .founding-tag {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold-gradient);
+    color: var(--navy);
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .founding-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .price-line {
+    margin: 20px 0 8px;
+  }
+
+  .price-old {
+    font-size: 22px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-right: 10px;
+    font-weight: 500;
+  }
+
+  .price-new {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 56px;
+    letter-spacing: -0.03em;
+  }
+
+  .price-period {
+    font-size: 16px;
+    color: var(--text-soft);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+  }
+
+  .price-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  .founding-perks {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 28px;
+    padding: 24px;
+    background: var(--cream);
+    border-radius: 12px;
+  }
+
+  .founding-perks li {
+    padding: 7px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--navy);
+    font-size: 15px;
+  }
+
+  .founding-perks .check {
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .scarcity {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    background: white;
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-list {
+    margin-top: 40px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+
+  .faq-q {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-a {
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 60px 32px 32px;
+    color: #6a7890;
+    text-align: center;
+  }
+
+  footer .logo {
+    color: #f0ebe0;
+    margin-bottom: 18px;
+  }
+
+  footer p { font-size: 13px; margin-bottom: 8px; }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .footer-links {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    font-size: 13px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner, .features-grid, .problem-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-visual { height: 380px; display: none; }
+    section { padding: 70px 20px; }
+    .hero { padding: 110px 20px 60px; }
+    nav { padding: 14px 20px; }
+    .email-form { flex-direction: column; }
+    .email-form button { width: 100%; }
+    .founding-card { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Photi<em class="gold-text">qq</em></div>
+  <a href="#waitlist" class="cta">Join Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Coming Late 2026 · Founding Members Now Open
+      </div>
+      <h1>Run your studio<br>like a <em class="gold-text">pro.</em></h1>
+      <p class="subheadline">The all-inclusive studio platform built for photographers — galleries, scheduling, payments, and client management in one place.</p>
+
+      <form class="email-form" id="signupForm" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="your@email.com" required id="emailInput">
+        <button type="submit">Get Early Access</button>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <strong>You're on the list! ✨</strong> We'll be in touch soon with your founding member details.
+      </div>
+
+      <div class="form-note">
+        <span class="check">✓</span> Founding member: 50% off your first year · No spam, ever
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="dashboard-mock">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+        </div>
+        <div class="mock-content">
+          <div class="mock-side">
+            <div class="mlog">P<span style="background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">qq</span></div>
+            <div class="mock-nav-item active">⊞ Home</div>
+            <div class="mock-nav-item">◫ Galleries</div>
+            <div class="mock-nav-item">◷ Schedule</div>
+            <div class="mock-nav-item">◈ Payments</div>
+            <div class="mock-nav-item">◉ Clients</div>
+          </div>
+          <div class="mock-main">
+            <div class="mock-stats">
+              <div class="mock-stat">
+                <div class="mock-stat-label">Revenue</div>
+                <div class="mock-stat-val gold">$14.2k</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-label">Sessions</div>
+                <div class="mock-stat-val">9</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-label">Pending</div>
+                <div class="mock-stat-val">$4.4k</div>
+              </div>
+            </div>
+            <div class="mock-list">
+              <div class="mock-list-title">Upcoming Sessions</div>
+              <div class="mock-row">
+                <div class="mock-icon"></div>
+                <span class="name">Sara & James</span>
+                <span class="amt">$3,400</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-icon"></div>
+                <span class="name">Mila Chen</span>
+                <span class="amt">$650</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-icon"></div>
+                <span class="name">Brayden Co.</span>
+                <span class="amt">$8,900</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="section-label">Everything you need</div>
+    <h2>One platform.<br><em class="gold-text">Every</em> studio task.</h2>
+    <p class="lead">Stop duct-taping six different tools together. Photiqq brings your entire workflow into one beautifully-designed home.</p>
+
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">◫</div>
+        <h3>Stunning Galleries</h3>
+        <p>Deliver beautiful, mobile-first galleries with custom branding, watermarks, and direct-download links your clients will love.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">◷</div>
+        <h3>Smart Scheduling</h3>
+        <p>Booking calendar, session types, automated reminders. Clients book themselves while you focus on shooting.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">◈</div>
+        <h3>Effortless Payments</h3>
+        <p>Invoices, deposits, payment plans, and contracts — all tied to your bookings. Get paid faster, with less chasing.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">◉</div>
+        <h3>Client Management</h3>
+        <p>Every inquiry, message, contract, and invoice in one place. Never forget a follow-up or lose a lead again.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">◎</div>
+        <h3>Pro Deliveries</h3>
+        <p>Branded delivery links with download tracking, expiration dates, and PIN protection for every client.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⊞</div>
+        <h3>Business Insights</h3>
+        <p>Real-time revenue, booking pipeline, and client value tracking. Know exactly how your business is performing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM/SOLUTION -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">Built for photographers</div>
+    <h2>Tired of the<br><em class="gold-text">duct-tape</em> stack?</h2>
+    <p class="lead">Most photographers piece together 5+ tools to run their business. We talked to dozens of pros — here's what they hate.</p>
+
+    <div class="problem-grid">
+      <div>
+        <ul class="problem-list">
+          <li>
+            <span class="x">✕</span>
+            <div>
+              <strong>Slow, unreliable uploads</strong>
+              <span>Galleries take hours, fail at 99%, and force you to start over.</span>
+            </div>
+          </li>
+          <li>
+            <span class="x">✕</span>
+            <div>
+              <strong>Clunky, dated interfaces</strong>
+              <span>Tools that feel like they were designed a decade ago.</span>
+            </div>
+          </li>
+          <li>
+            <span class="x">✕</span>
+            <div>
+              <strong>No native mobile app</strong>
+              <span>Your business runs everywhere — your software should too.</span>
+            </div>
+          </li>
+          <li>
+            <span class="x">✕</span>
+            <div>
+              <strong>Disconnected tools</strong>
+              <span>Pixieset for galleries, Calendly for booking, Stripe for invoices, Notion for clients...</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <h3>Photiqq fixes all of it.</h3>
+        <p>One beautifully-designed platform built for how photographers actually work today. Modern, mobile, all-inclusive.</p>
+        <ul>
+          <li><span class="check">✓</span> Reliable, resumable uploads</li>
+          <li><span class="check">✓</span> Beautiful, modern interface</li>
+          <li><span class="check">✓</span> Native iOS and Android apps</li>
+          <li><span class="check">✓</span> Galleries, booking, payments — together</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDING MEMBERS -->
+<section class="founding" id="waitlist">
+  <div class="container">
+    <div class="section-label">Founding member offer</div>
+    <h2>Be one of our<br>first <em class="gold-text">100.</em></h2>
+    <p class="lead" style="margin-left:auto;margin-right:auto;">Lock in founding member pricing forever. Help shape the platform. Get a direct line to the founder.</p>
+
+    <div class="founding-card">
+      <div class="founding-tag">★ Limited to first 100</div>
+      <h3>Founding Member</h3>
+      <div class="price-line">
+        <span class="price-new gold-text">50% Off</span>
+      </div>
+      <div class="price-sub">Your first year · No payment due today</div>
+
+      <ul class="founding-perks">
+        <li><span class="check">✓</span> 50% off your first year of Photiqq</li>
+        <li><span class="check">✓</span> First access when we launch (Late 2026)</li>
+        <li><span class="check">✓</span> Direct line to the founder for feature requests</li>
+        <li><span class="check">✓</span> Founding Member badge on your profile</li>
+        <li><span class="check">✓</span> Cancel anytime, no questions asked</li>
+      </ul>
+
+      <form class="email-form" style="max-width:none;" onsubmit="handleSubmit(event, true)">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Claim My Spot</button>
+      </form>
+      <div class="scarcity" id="scarcityCount">Currently 73 of 100 spots remaining</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">Common questions</div>
+    <h2>Frequently asked.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">When does Photiqq launch?</div>
+        <div class="faq-a">We're targeting a Late 2026 launch. Founding members get first access — likely 2–4 weeks before public launch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I have to pay anything today?</div>
+        <div class="faq-a">No. Joining the waitlist is completely free. You'll only be charged once we launch and you start your subscription — and your first year is 50% off as a founding member.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What makes Photiqq different from Pixieset or Pic-Time?</div>
+        <div class="faq-a">We're building everything in one place — galleries, scheduling, payments, and client management. We're focused on a modern, mobile-first experience that feels built for how photographers actually work today.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel anytime?</div>
+        <div class="faq-a">Absolutely. No contracts, no commitments. If Photiqq isn't working for you, cancel with one click and export all your data.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How can I help shape the product?</div>
+        <div class="faq-a">Founding members get a direct line to the founder. We genuinely want your input on what to build, what to prioritize, and how to make Photiqq the best tool for your business.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Photi<span class="gold-text">qq</span></div>
+  <p>The all-inclusive studio platform built for photographers.</p>
+  <p>© 2026 Photiqq. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="mailto:hello@photiqq.com">hello@photiqq.com</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e, isFounding = false) {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.querySelector('input[type="email"]').value;
+
+    // In production, this would POST to your email service (Mailchimp, ConvertKit, etc.)
+    console.log('Email captured:', email, 'Founding:', isFounding);
+
+    // Show success message
+    const successMsg = document.getElementById('successMsg');
+    if (successMsg && !isFounding) {
+      successMsg.classList.add('show');
+      form.style.display = 'none';
+    } else {
+      // Founding form - replace with success
+      form.innerHTML = '<div style="padding:20px;background:rgba(74,173,102,0.1);border:1px solid rgba(74,173,102,0.4);border-radius:10px;color:#2d6a2d;text-align:center;width:100%;font-weight:600;">🎉 You\'re a founding member! Check your inbox for next steps.</div>';
+    }
+
+    // Scroll to top of form
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Subtle scarcity counter — slowly decreases
+  let count = 73;
+  setInterval(() => {
+    if (count > 50 && Math.random() > 0.7) {
+      count--;
+      const el = document.getElementById('scarcityCount');
+      if (el) el.textContent = `Currently ${count} of 100 spots remaining`;
+    }
+  }, 45000);
+</script>
+
+</body>
+</html>
