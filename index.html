@@ -824,8 +824,9 @@
       <h1>Run your studio<br>like a <em class="gold-text">pro.</em></h1>
       <p class="subheadline">The all-inclusive studio platform built for photographers — galleries, scheduling, payments, and client management in one place.</p>
 
-      <form class="email-form" id="signupForm" onsubmit="handleSubmit(event)">
-        <input type="email" placeholder="your@email.com" required id="emailInput">
+      <form class="email-form" id="heroForm" onsubmit="handleSubmit(event, false)">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="hidden" name="form_type" value="hero_waitlist">
         <button type="submit">Get Early Access</button>
       </form>
 
@@ -899,7 +900,7 @@
   <div class="container">
     <div class="section-label">Everything you need</div>
     <h2>One platform.<br><em class="gold-text">Every</em> studio task.</h2>
-    <p class="lead">Stop duct-taping six different tools together. Photiqq brings your entire workflow into one beautifully-designed home.</p>
+    <p class="lead">Your business deserves one home. Photiqq brings your entire workflow into a single, beautifully-designed platform.</p>
 
     <div class="features-grid">
       <div class="feature">
@@ -940,8 +941,8 @@
 <section class="problem">
   <div class="container">
     <div class="section-label">Built for photographers</div>
-    <h2>Tired of the<br><em class="gold-text">duct-tape</em> stack?</h2>
-    <p class="lead">Most photographers piece together 5+ tools to run their business. We talked to dozens of pros — here's what they hate.</p>
+    <h2>Your workflow.<br><em class="gold-text">Simplified.</em></h2>
+    <p class="lead">Most photographers juggle five or six separate tools just to run their business. We talked to dozens of pros — here's what they told us.</p>
 
     <div class="problem-grid">
       <div>
@@ -1013,11 +1014,12 @@
         <li><span class="check">✓</span> Cancel anytime, no questions asked</li>
       </ul>
 
-      <form class="email-form" style="max-width:none;" onsubmit="handleSubmit(event, true)">
-        <input type="email" placeholder="your@email.com" required>
+      <form class="email-form" style="max-width:none;" id="foundingForm" onsubmit="handleSubmit(event, true)">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="hidden" name="form_type" value="founding_member">
         <button type="submit">Claim My Spot</button>
       </form>
-      <div class="scarcity" id="scarcityCount">Currently 73 of 100 spots remaining</div>
+
     </div>
   </div>
 </section>
@@ -1065,37 +1067,58 @@
 </footer>
 
 <script>
-  function handleSubmit(e, isFounding = false) {
+  const FORMSPREE_URL = 'https://formspree.io/f/mwvadorb';
+
+  async function handleSubmit(e, isFounding = false) {
     e.preventDefault();
     const form = e.target;
+    const btn = form.querySelector('button');
+    const originalText = btn.textContent;
+
+    // Disable button while submitting
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
     const email = form.querySelector('input[type="email"]').value;
+    const formType = isFounding ? 'founding_member' : 'hero_waitlist';
 
-    // In production, this would POST to your email service (Mailchimp, ConvertKit, etc.)
-    console.log('Email captured:', email, 'Founding:', isFounding);
+    try {
+      const response = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email, form_type: formType })
+      });
 
-    // Show success message
-    const successMsg = document.getElementById('successMsg');
-    if (successMsg && !isFounding) {
-      successMsg.classList.add('show');
-      form.style.display = 'none';
-    } else {
-      // Founding form - replace with success
-      form.innerHTML = '<div style="padding:20px;background:rgba(74,173,102,0.1);border:1px solid rgba(74,173,102,0.4);border-radius:10px;color:#2d6a2d;text-align:center;width:100%;font-weight:600;">🎉 You\'re a founding member! Check your inbox for next steps.</div>';
+      if (response.ok) {
+        if (!isFounding) {
+          // Hero form success
+          const successMsg = document.getElementById('successMsg');
+          if (successMsg) successMsg.classList.add('show');
+          form.style.display = 'none';
+        } else {
+          // Founding form success
+          form.parentNode.insertAdjacentHTML('beforeend',
+            '<div style="margin-top:16px;padding:20px;background:rgba(74,173,102,0.1);border:1px solid rgba(74,173,102,0.4);border-radius:10px;color:#2d6a2d;text-align:center;font-weight:600;">🎉 You\'re a founding member! Check your inbox.</div>'
+          );
+          form.style.display = 'none';
+        }
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      btn.style.background = '#c75d4a';
+      btn.textContent = 'Something went wrong — try again';
+      setTimeout(() => {
+        btn.style.background = '';
+        btn.textContent = originalText;
+      }, 3000);
     }
 
-    // Scroll to top of form
     form.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // Subtle scarcity counter — slowly decreases
-  let count = 73;
-  setInterval(() => {
-    if (count > 50 && Math.random() > 0.7) {
-      count--;
-      const el = document.getElementById('scarcityCount');
-      if (el) el.textContent = `Currently ${count} of 100 spots remaining`;
-    }
-  }, 45000);
 </script>
 
 </body>
